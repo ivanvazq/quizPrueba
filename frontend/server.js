@@ -41,6 +41,32 @@ router.get('/quizzes', (req, res, next) => {
         }).catch(err => {throw err});
 });
 
+router.get('/quizzes/new', (req, res, next) => {
+
+    fetch('http://quiz:3001/api/quizzes/new')
+        .then(res => res.json())
+        .then((out) => {
+            res.render('quizzes/new', out);
+        }).catch(err => {throw err});
+
+ });
+
+router.post('/quizzes', (req, res, next) => {
+
+    const {question, answer} = req.body;
+    const author = res.locals.user;
+
+    let xhr = new XMLHttpRequest();
+    let url = 'http://quiz:3001/api/quizzes';
+    xhr.open("POST", url, true);
+    // console.log(question)
+    var data = JSON.stringify({question, answer, author});
+    console.log(data)
+    xhr.send(data);
+    res.redirect('/quizzes');
+});
+
+
 
 var port = process.env.PORT || 3000;
 

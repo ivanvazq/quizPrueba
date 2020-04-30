@@ -19,6 +19,11 @@ router.param('quizId', quizController.load);
 // Routes for the resource /quizzes
 router.get('/api/quizzes', quizController.index);
 
+router.get('/api/quizzes/new', quizController.new);
+
+router.post('/api/quizzes', quizController.create);
+
+
 const port = 3001;
 
 

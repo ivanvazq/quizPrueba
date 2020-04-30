@@ -58,6 +58,50 @@ exports.index = (req, res, next) => {
     .catch(error => next(error));
 };
 
+// GET /quizzes/new
+exports.new = (req, res, next) => {
+
+    const quiz = {
+        question: "",
+        answer: ""
+    };
+
+    res.send({quiz});
+};
+
+
+// POST /quizzes/create
+exports.create = (req, res, next) => {
+
+    req.on("data", (quiz) => {
+        quiz = JSON.parse(quiz)
+
+        const question = quiz.question;
+        const answer = quiz.answer;
+
+        const newQuiz = quizModel.build({
+            question,
+            answer
+        })
+        console.log(newQuiz)
+        newQuiz.save({fields: ["question", "answer"]})
+        .then(quiz => {
+//        req.flash('success', 'Quiz created successfully.');
+            res.redirect('/quizzes/' + quiz.id);
+        })
+        .catch(Sequelize.ValidationError, error => {
+//        req.flash('error', 'There are errors in the form:');
+//        error.errors.forEach(({message}) => req.flash('error', message));
+            res.send({quiz});
+        })
+        .catch(error => {
+//        req.flash('error', 'Error creating a new Quiz: ' + error.message);
+            next(error);
+        });
+    });
+};
+
+
 
 
 
