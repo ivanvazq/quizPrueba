@@ -23,4 +23,6 @@ const port = 3001;
 
 
 app.use(router)
-app.listen(port);
+app.listen(port => {
+    console.log("Quiz service started on port " + port)
+});

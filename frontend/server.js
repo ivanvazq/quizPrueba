@@ -64,4 +64,6 @@ app.use(partials());
 
 
 app.use(router)
-app.listen(port);
+app.listen(port => {
+    console.log("Frontend service started on port " + port);
+});
