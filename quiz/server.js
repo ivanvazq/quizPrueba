@@ -19,41 +19,7 @@ router.param('quizId', quizController.load);
 // Routes for the resource /quizzes
 router.get('/api/quizzes', quizController.index);
 
-// router.get('/api/quizzes/:quizId(\\d+)', quizController.show);
-
-// router.get('/api/quizzes/new', quizController.new);
-
-// router.post('/api/quizzes', quizController.create);
-
-// // router.get('/api/quizzes/:quizId(\\d+)/edit', quizController.edit);
-
-// router.put('/api/quizzes/:quizId(\\d+)', quizController.update);
-
-// router.delete('/api/quizzes/:quizId(\\d+)', quizController.destroy);
-
-// router.get('/api/quizzes/:quizId(\\d+)/play', quizController.play);
-// router.get('/api/quizzes/:quizId(\\d+)/check', quizController.check);
-
-
-
-
 const port = 3001;
-
-
-// // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
-
-
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-// app.use(logger('dev'));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(cookieParser());
-
-// app.use(methodOverride('_method', {methods: ["POST", "GET"]}));
-// app.use(express.static(path.join(__dirname, 'public')));
-// app.use(partials());
 
 
 app.use(router)
