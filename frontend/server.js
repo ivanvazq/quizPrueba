@@ -33,7 +33,7 @@ router.get('/', (req, res, next) => {
 //GET all quizzes
 router.get('/quizzes', (req, res, next) => {
 
-    fetch("http://localhost:3001/api/quizzes")
+    fetch("http://quiz:3001/api/quizzes")
         .then(res => res.json())
         .then((out) => {
             res.render('quizzes/index', {out})
