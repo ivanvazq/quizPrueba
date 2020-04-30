@@ -1,21 +1,26 @@
-version: '2'
+version: '3'
 
 services:
   frontend:
-    image: frontend
-    environment:
-        - PORT = "3000"; QUIZ = "quiz:3001"
+    container_name: frontend
+    build: './frontend'
     ports:
       - "3000:3000"
-    depends_on:
-      - quiz
+    networks:
+      - mynet
     
 
-  
   quiz:
-    image: quiz
-    environment:
-        - PORT = "3001"; QUIZ = "quiz:3001"
+    container_name: quiz
+    build: './quiz'
     ports:
       - "3001:3001"
+    networks:
+      - mynet
+
+networks:
+  mynet:
+    driver: bridge
+    ipam:
+      driver: default
     

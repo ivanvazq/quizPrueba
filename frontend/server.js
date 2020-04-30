@@ -33,7 +33,7 @@ router.get('/', (req, res, next) => {
 //GET all quizzes
 router.get('/quizzes', (req, res, next) => {
 
-    fetch("http://" + quizService + "/api/quizzes")
+    fetch("http://localhost:3001/api/quizzes")
         .then(res => res.json())
         .then((out) => {
             res.render('quizzes/index', {out})
@@ -64,6 +64,6 @@ app.use(partials());
 
 
 app.use(router)
-app.listen(port => {
-    console.log("Frontend service started on port " + port);
+app.listen(3000, () => {
+    console.log("Frontend service started on port " + 3000);
 });
