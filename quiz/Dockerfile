@@ -6,11 +6,9 @@ RUN apt-get update && \
 RUN curl -sl https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y nodejs
 
-RUN cp /home/Universidad/TFG/ejemplos/quiz_microservicios/quiz/* /var/lib/docker/tmp/docker-builder921528113/quiz
+RUN git clone https://github.com/ivanvazq/quizPrueba
 
-COPY /quiz app/quiz
-
-WORKDIR /app/quiz
+WORKDIR ./quizPrueba/quiz
 
 RUN npm install
 

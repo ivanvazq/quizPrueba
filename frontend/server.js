@@ -13,11 +13,7 @@ var methodOverride = require('method-override');
 var partials = require('express-partials');
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-
-// const quizController = require('./quizController');
-
-const quizzes = "http://localhost:3001/api/quizzes";
-const users = "http://localhost:3003/api/users"
+var quizService = process.env.QUIZ || "localhost:3000";
 
 
 // // // Autoload for routes using :quizId
@@ -74,7 +70,7 @@ router.get('/', (req, res, next) => {
 //GET all quizzes
 router.get('/quizzes', (req, res, next) => {
 
-    fetch(quizzes)
+    fetch("http://" + quizService + "/quizzes")
         .then(res => res.json())
         .then((out) => {
             res.render('quizzes/index', {out})
@@ -411,7 +407,7 @@ router.get('/quizzes', (req, res, next) => {
 
 
 
-const port = 3000;
+var port = process.env.PORT || 3000;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

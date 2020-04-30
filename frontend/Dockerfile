@@ -6,9 +6,9 @@ RUN apt-get update && \
 RUN curl -sl https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y nodejs
 
-RUN git clone https://github.com/ivanvazq/quiz_microservices
+RUN git clone https://github.com/ivanvazq/quizPrueba
 
-WORKDIR ./quiz_microservices/frontend
+WORKDIR ./quizPrueba/frontend
 
 RUN npm install
 

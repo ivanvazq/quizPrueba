@@ -3,11 +3,19 @@ version: '2'
 services:
   frontend:
     image: frontend
+    environment:
+        - PORT = "3001"; QUIZ = "quiz:3001"
     ports:
       - "3000:3000"
+    depends_on:
+      - quiz
+    
 
   
-  session:
+  quiz:
     image: quiz
+    environment:
+        - PORT = "3001"; QUIZ = "quiz:3001"
     ports:
       - "3001:3001"
+    
