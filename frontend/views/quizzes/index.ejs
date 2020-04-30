@@ -11,9 +11,6 @@
             <a href="/quizzes/<%= quiz.id %>/play"><%= quiz.question %></a>
         </td>
         <td>
-            <% include ../fav %>
-        </td>
-        <td>
             <small> <%= quiz.author ? quiz.author : "Anonymous" %> </small>
         </td>
 

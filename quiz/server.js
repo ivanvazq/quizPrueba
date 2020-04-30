@@ -19,20 +19,20 @@ router.param('quizId', quizController.load);
 // Routes for the resource /quizzes
 router.get('/api/quizzes', quizController.index);
 
-router.get('/api/quizzes/:quizId(\\d+)', quizController.show);
+// router.get('/api/quizzes/:quizId(\\d+)', quizController.show);
 
-router.get('/api/quizzes/new', quizController.new);
+// router.get('/api/quizzes/new', quizController.new);
 
-router.post('/api/quizzes', quizController.create);
+// router.post('/api/quizzes', quizController.create);
 
-// router.get('/api/quizzes/:quizId(\\d+)/edit', quizController.edit);
+// // router.get('/api/quizzes/:quizId(\\d+)/edit', quizController.edit);
 
-router.put('/api/quizzes/:quizId(\\d+)', quizController.update);
+// router.put('/api/quizzes/:quizId(\\d+)', quizController.update);
 
-router.delete('/api/quizzes/:quizId(\\d+)', quizController.destroy);
+// router.delete('/api/quizzes/:quizId(\\d+)', quizController.destroy);
 
-router.get('/api/quizzes/:quizId(\\d+)/play', quizController.play);
-router.get('/api/quizzes/:quizId(\\d+)/check', quizController.check);
+// router.get('/api/quizzes/:quizId(\\d+)/play', quizController.play);
+// router.get('/api/quizzes/:quizId(\\d+)/check', quizController.check);
 
 
 
