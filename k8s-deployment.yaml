@@ -1,0 +1,19 @@
+apiVersion: apps/v1 # Usa apps/v1beta2 para versiones anteriores a 1.9.0
+kind: Deployment
+metadata:
+  name: quiz
+spec:
+  selector:
+    matchLabels:
+      app: quiz
+  replicas: 2 # indica al controlador que ejecute 2 pods
+  template:
+    metadata:
+      labels:
+        app: quiz
+    spec:
+      containers:
+      - name: quiz
+        image: quiz
+        ports:
+        - containerPort: 3001
