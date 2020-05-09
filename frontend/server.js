@@ -13,7 +13,7 @@ var methodOverride = require('method-override');
 var partials = require('express-partials');
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-var quizService = "localhost:3001";
+var quizService = "quiz:3001" || "localhost:3001";
 
 
 
@@ -43,7 +43,7 @@ router.get('/quizzes', (req, res, next) => {
 
 router.get('/quizzes/new', (req, res, next) => {
 
-    fetch('http://quiz:3001/api/quizzes/new')
+    fetch('http://'+ quizService +'/api/quizzes/new')
         .then(res => res.json())
         .then((out) => {
             res.render('quizzes/new', out);
